@@ -13,6 +13,7 @@
 index
 !*.gitignore
 !*.c
+!Makefile
 
 # Backup files
 *~ 
@@ -38,9 +39,9 @@ index
 *.sublime-workspace
 
 # Makefile generated files
-Makefile
-Makefile.in
-Makefile.am
+# Makefile
+# Makefile.in
+# Makefile.am
 
 # CMake generated files
 CMakeFiles/

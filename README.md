@@ -8,16 +8,14 @@ This is where I build my own text editor in C.
 
 ## Scripts
 
-### Compile Command
+**Compoile and run the code in one step:**
 
 ```bash
-gcc index.c src/*.c -o index
+make run
 ```
 
-```bash
-./index
-```
+**Clean up the compiled files:**
 
 ```bash
-clear && gcc index.c src/*.c -o index && ./index
+make clean
 ```
