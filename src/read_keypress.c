@@ -23,10 +23,5 @@
  */
 void read_keypress(void) {
     char c;
-    while (read(STDIN_FILENO, &c, 1) == 1) {
-        if (c == 'q') {
-            printf("Exiting...\n");
-            exit(0);
-        }
-    };
+    while (read(STDIN_FILENO, &c, 1) == 1 && c != 'q') {};
 }

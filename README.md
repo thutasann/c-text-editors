@@ -1,6 +1,6 @@
 # Building Text Editor in C
 
-This is where I build my own text editor named `Elastrix` in C.
+This is where I build the simple text editor named `Elastrix` in C.
 
 ## Table of Contents
 

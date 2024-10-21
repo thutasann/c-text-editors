@@ -23,7 +23,7 @@ void welcome_text(void) {
     printf("Welcome To Elastrix Editor!\n");
     printf("\033[0m"); // Reset formatting to default
 
-    printf("Press 'q' to exit.\n");
+    printf("Press 'q' and 'enter' to exit.\n");
 
     printf("****************************\n");
 }
