@@ -1,0 +1,30 @@
+name: C Build Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Install dependencies (if any)
+      - name: Install GCC
+        run: sudo apt-get update && sudo apt-get install build-essential -y
+
+      # Compile the code
+      - name: Compile C Program
+        run: gcc index.c src/*.c -o index
+
+      # Run the compiled program
+      - name: Run Program
+        run: ./index
