@@ -3,7 +3,7 @@
 void welcome_text(void);
 
 /**
-    ## Building own text editor in C
+    ## Building own text editor named `Elastrix` in C
  */
 int main() {
     welcome_text();

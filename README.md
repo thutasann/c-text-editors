@@ -1,10 +1,14 @@
 # Building Text Editor in C
 
-This is where I build my own text editor in C.
+This is where I build my own text editor named `Elastrix` in C.
 
-## Sources
+## Table of Contents
 
-- [Article](https://viewsourcecode.org/snaptoken/kilo/)
+| Topic     | Source                     |
+| --------- | -------------------------- |
+| Notes     | [Source](./docs/README.md) |
+| Scripts   | [Source](#scripts)         |
+| Resources | [Source](#resources)       |
 
 ## Scripts
 
@@ -19,3 +23,7 @@ make run
 ```bash
 make clean
 ```
+
+## Resources
+
+- [Article](https://viewsourcecode.org/snaptoken/kilo/)
