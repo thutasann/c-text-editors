@@ -1,6 +1,9 @@
 # Compiler
 CC = gcc
 
+# C Flags
+CFLAGS=-Wall -Wextra -pedantic -std=c99
+
 # Source files (index.c and all .c files in src folder)
 SRC = index.c src/*.c
 

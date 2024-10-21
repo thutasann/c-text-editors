@@ -24,6 +24,12 @@ make run
 make clean
 ```
 
+**display the exit status of the last executed command**
+
+```bash
+echo $?
+```
+
 ## Resources
 
 - [Article](https://viewsourcecode.org/snaptoken/kilo/)
