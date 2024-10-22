@@ -25,7 +25,7 @@ void enable_raw_mode(void) {
     tcgetattr(STDIN_FILENO, &raw);
 
     // disable echo and canoncial mode
-    // raw.c_lflag &= ~(ECHO);
+    raw.c_lflag &= ~(ECHO);
 
     // set the new attribute
     tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
