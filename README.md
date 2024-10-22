@@ -12,9 +12,9 @@ This is where I build the text editors in C.
 
 ## Editors
 
-| Topic           | Source                       |
-| --------------- | ---------------------------- |
-| GUI Text Editor | [Source](./src/first-editor) |
+| Editors           | Source                       |
+| ----------------- | ---------------------------- |
+| First Text Editor | [Source](./src/first-editor) |
 
 ## Scripts
 
