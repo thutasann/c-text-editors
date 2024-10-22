@@ -6,6 +6,6 @@
     - This file is just the welcome file
  */
 int main(void) {
-    welcome_text();
+    printf("WELCOME...");
     return 0;
 }
