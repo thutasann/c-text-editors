@@ -12,16 +12,16 @@ This is where I build the text editors in C.
 
 ## Editors
 
-| Topic           | Source                                 |
-| --------------- | -------------------------------------- |
-| GUI Text Editor | [Source](./src/simple-gui-text-editor) |
+| Topic           | Source                       |
+| --------------- | ---------------------------- |
+| GUI Text Editor | [Source](./src/first-editor) |
 
 ## Scripts
 
 **Run Simple GUI Text Editor:**
 
 ```bash
-make run PROJECT=simple-gui-text-editor
+make run PROJECT=first-editor
 ```
 
 **Clean up the compiled files:**

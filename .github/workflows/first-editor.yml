@@ -1,4 +1,4 @@
-name: C Program CI - simple-gui-text-editor
+name: C Program CI - first-editor
 
 on:
   push:
@@ -24,8 +24,8 @@ jobs:
       # Compile the C program (specific project + shared folder)
       - name: Compile C Program
         run: |
-          gcc src/simple-gui-text-editor/*.c src/shared/*.c -o simple-gui-text-editor
+          gcc src/first-editor/*.c src/shared/*.c -o first-editor
 
       # Run the compiled program
       - name: Run Program
-        run: ./simple-gui-text-editor
+        run: ./first-editor

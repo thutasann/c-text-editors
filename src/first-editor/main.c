@@ -3,6 +3,6 @@
 void welcome_text(const char *message);
 
 int main(void) {
-    welcome_text("Simple GUI Text Editor");
+    welcome_text("First Editor");
     return 0;
 }
