@@ -6,17 +6,20 @@ CFLAGS = -Wall -Wextra -pedantic -std=c99
 
 # Source directories
 SRC_DIR = src
-FIRST_EDITOR_DIR = $(SRC_DIR)/first-editor
 SHARED_DIR = $(SRC_DIR)/shared
 
+# Default project directory (can be overridden)
+PROJECT = first-editor
+PROJECT_DIR = $(SRC_DIR)/$(PROJECT)
+
 # Output binary/executable name
-TARGET = program
+TARGET = $(PROJECT)
 
 # Rule to compile and link the files for a specific project
 all: $(TARGET)
 
-$(TARGET): $(wildcard $(FIRST_EDITOR_DIR)/*.c) $(wildcard $(SHARED_DIR)/*.c)
-	$(CC) $(CFLAGS) -o $(TARGET) $(wildcard $(FIRST_EDITOR_DIR)/*.c) $(wildcard $(SHARED_DIR)/*.c) -lncurses
+$(TARGET): $(wildcard $(PROJECT_DIR)/*.c) $(wildcard $(SHARED_DIR)/*.c)
+	$(CC) $(CFLAGS) -o $(TARGET) $(wildcard $(PROJECT_DIR)/*.c) $(wildcard $(SHARED_DIR)/*.c) -lncurses
 
 # Rule to run the compiled program for a specific project
 run: all
