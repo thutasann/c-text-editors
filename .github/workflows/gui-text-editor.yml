@@ -24,7 +24,7 @@ jobs:
       # Compile the C program (specific project + shared folder)
       - name: Compile C Program
         run: |
-          gcc index.c src/simple-gui-text-editor/*.c src/shared/*.c -o simple-gui-text-editor
+          gcc src/simple-gui-text-editor/*.c src/shared/*.c -o simple-gui-text-editor
 
       # Run the compiled program
       - name: Run Program
