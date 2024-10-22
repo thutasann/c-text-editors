@@ -23,7 +23,7 @@ jobs:
 
       # Compile the code
       - name: Compile C Program
-        run: gcc index.c src/*.c -o index
+        run: gcc index.c src/*/*.c -o index
 
       # Run the compiled program
       - name: Run Program

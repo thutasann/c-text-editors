@@ -1,6 +1,6 @@
 # Building Text Editor in C
 
-This is where I build the simple text editor named `Elastrix` in C.
+This is where I build the text editors in C.
 
 ## Table of Contents
 
@@ -9,6 +9,12 @@ This is where I build the simple text editor named `Elastrix` in C.
 | Notes     | [Source](./docs/README.md) |
 | Scripts   | [Source](#scripts)         |
 | Resources | [Source](#resources)       |
+
+## Editors
+
+| Topic           | Source                       |
+| --------------- | ---------------------------- |
+| GUI Text Editor | [Source](./src/first-editor) |
 
 ## Scripts
 
