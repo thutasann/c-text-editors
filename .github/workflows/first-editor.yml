@@ -27,9 +27,9 @@ jobs:
           gcc src/first-editor/*.c src/shared/*.c -o first-editor -lncurses
 
       # Run the compiled program
-      - name: Run Program
-        run: ./first-editor
+      # - name: Run Program
+      #   run: ./first-editor
 
       # Optional: Clean up
-      - name: Clean up
-        run: rm -f first-editor
+      # - name: Clean up
+      #   run: rm -f first-editor
