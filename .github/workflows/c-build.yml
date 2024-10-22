@@ -1,4 +1,4 @@
-name: C Program CI
+name: C Build Workflow
 
 on:
   push:
@@ -12,22 +12,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    env:
-      PROJECT: simple-gui-text-editor # Manually specify the project name here
-
     steps:
       # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Install GCC and necessary build tools
+      # Install dependencies (if any)
       - name: Install GCC
         run: sudo apt-get update && sudo apt-get install build-essential -y
 
-      # Compile the C program using the PROJECT environment variable
+      # Compile the code
       - name: Compile C Program
-        run: |
-          gcc index.c src/$PROJECT/*.c src/shared/*.c -o index
+        run: gcc index.c src/*/*.c -o index
 
       # Run the compiled program
       - name: Run Program
