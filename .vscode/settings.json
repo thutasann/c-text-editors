@@ -20,6 +20,7 @@
     "string_view": "c",
     "unistd.h": "c",
     "xlib.h": "c",
-    "ncurses.h": "c"
+    "ncurses.h": "c",
+    "curses.h": "c"
   }
 }

@@ -22,8 +22,6 @@ void welcome_text(const char *message) {
     printf("\033[1;32m");
     printf("%s\n", message);
     printf("\033[0m"); // Reset formatting to default
-
     printf("Press 'q' and 'enter' to exit.\n");
-
     printf("****************************\n");
 }
