@@ -21,13 +21,7 @@ This is where I build the text editors in C.
 **Run Simple GUI Text Editor:**
 
 ```bash
-make run PROJECT=first-editor
-```
-
-**Clean up the compiled files:**
-
-```bash
-make clean
+make clean && make run PROJECT=first-editor
 ```
 
 **display the exit status of the last executed command**

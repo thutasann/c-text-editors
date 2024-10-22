@@ -7,20 +7,23 @@ void welcome_print(const char *message);
     ## First Text Editor
  */
 int main(void) {
-    initscr(); // starting curse mode
+    initscr(); // init
 
     start_color();                          // start color functionality
     init_pair(1, COLOR_GREEN, COLOR_BLACK); // (foreground, background)
-    welcome_print("First Text Editor");
 
     raw();                // line buffering disabled
     keypad(stdscr, TRUE); // get F1, F2, etc...
     noecho();             // dont echo() while we do getch
 
-    int ch = getch();
+    int row, col;
+    getmaxyx(stdscr, row, col);
+    mvprintw(row - 1, col, "NORMAL");
+    move(0, 0);
 
+    int ch = getch();
     while (ch != 'q') {
-        printw("%c", ch);
+        addch(ch);
         ch = getch();
     }
 
