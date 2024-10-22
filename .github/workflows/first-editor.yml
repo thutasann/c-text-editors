@@ -24,7 +24,7 @@ jobs:
       # Compile the C program (specific project + shared folder)
       - name: Compile C Program
         run: |
-          gcc src/first-editor/*/*.c src/shared/*.c -o first-editor -lncurses
+          gcc src/first-editor/*.c src/first-editor/*/*.c src/shared/*.c -o first-editor -lncurses
 
       # Run the compiled program
       # - name: Run Program
