@@ -1,4 +1,4 @@
-# Building Text Editor in C
+# Building Text Editors in C
 
 This is where I build the text editors in C.
 
@@ -12,16 +12,16 @@ This is where I build the text editors in C.
 
 ## Editors
 
-| Topic           | Source                       |
-| --------------- | ---------------------------- |
-| GUI Text Editor | [Source](./src/first-editor) |
+| Topic           | Source                                 |
+| --------------- | -------------------------------------- |
+| GUI Text Editor | [Source](./src/simple-gui-text-editor) |
 
 ## Scripts
 
-**Compoile and run the code in one step:**
+**Run Simple GUI Text Editor:**
 
 ```bash
-make run
+make run PROJECT=simple-gui-text-editor
 ```
 
 **Clean up the compiled files:**

@@ -2,21 +2,23 @@
 CC = gcc
 
 # C Flags
-CFLAGS=-Wall -Wextra -pedantic -std=c99
+# CFLAGS = -Wall -Wextra -pedantic -std=c99
 
-# Source files (index.c and all .c files in src folder)
-SRC = index.c src/*/*.c
+# Source folder and shared folder
+SRC_DIR = src
+SHARED_DIR = $(SRC_DIR)/shared
 
 # Output binary/executable name
-TARGET = index
+TARGET = program
 
-# Rule to compile and link the files
-all:
-	clear
-	$(CC) $(SRC) -o $(TARGET)
+# Rule to compile and link the files for a specific project
+all: $(PROJECT)
 
-# Rule to run the compiled program
-run: all 
+$(PROJECT):
+	$(CC) $(wildcard $(SRC_DIR)/$(PROJECT)/*.c) $(wildcard $(SHARED_DIR)/*.c) -o $(TARGET)
+
+# Rule to run the compiled program for a specific project
+run: all
 	./$(TARGET)
 
 # Clean up the compiled binary
