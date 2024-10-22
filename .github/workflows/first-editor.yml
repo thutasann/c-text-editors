@@ -1,12 +1,12 @@
-name: C Program CI - first-editor
+name: C Build and Run
 
 on:
   push:
     branches:
-      - master
+      - master # Trigger on pushes to the master branch
   pull_request:
     branches:
-      - master
+      - master # Trigger on pull requests to the master branch
 
 jobs:
   build:
@@ -24,8 +24,12 @@ jobs:
       # Compile the C program (specific project + shared folder)
       - name: Compile C Program
         run: |
-          gcc src/first-editor/*.c src/shared/*.c -o first-editor
+          gcc src/first-editor/*.c src/shared/*.c -o first-editor -lncurses
 
       # Run the compiled program
       - name: Run Program
         run: ./first-editor
+
+      # Optional: Clean up
+      - name: Clean up
+        run: rm -f first-editor
