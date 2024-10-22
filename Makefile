@@ -2,20 +2,21 @@
 CC = gcc
 
 # C Flags
-# CFLAGS = -Wall -Wextra -pedantic -std=c99
+CFLAGS = -Wall -Wextra -pedantic -std=c99
 
-# Source folder and shared folder
+# Source directories
 SRC_DIR = src
+FIRST_EDITOR_DIR = $(SRC_DIR)/first-editor
 SHARED_DIR = $(SRC_DIR)/shared
 
 # Output binary/executable name
 TARGET = program
 
 # Rule to compile and link the files for a specific project
-all: $(PROJECT)
+all: $(TARGET)
 
-$(PROJECT):
-	$(CC) $(wildcard $(SRC_DIR)/$(PROJECT)/*.c) $(wildcard $(SHARED_DIR)/*.c) -o $(TARGET)
+$(TARGET): $(wildcard $(FIRST_EDITOR_DIR)/*.c) $(wildcard $(SHARED_DIR)/*.c)
+	$(CC) $(CFLAGS) -o $(TARGET) $(wildcard $(FIRST_EDITOR_DIR)/*.c) $(wildcard $(SHARED_DIR)/*.c) -lncurses
 
 # Rule to run the compiled program for a specific project
 run: all
