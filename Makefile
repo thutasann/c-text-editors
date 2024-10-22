@@ -18,7 +18,7 @@ TARGET = $(PROJECT)
 # Rule to compile and link the files for a specific project
 all: $(TARGET)
 
-$(TARGET): $(wildcard $(PROJECT_DIR)/*.c)
+$(TARGET): $(wildcard $(PROJECT_DIR)/*/*.c)
 	$(CC) $(CFLAGS) -o $(TARGET) $(wildcard $(PROJECT_DIR)/*.c) -lncurses
 
 # Rule to run the compiled program for a specific project
