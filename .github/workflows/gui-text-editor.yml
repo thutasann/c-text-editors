@@ -1,4 +1,4 @@
-name: C Build Workflow
+name: C Program CI - simple-gui-text-editor
 
 on:
   push:
@@ -17,14 +17,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Install dependencies (if any)
+      # Install GCC and necessary build tools
       - name: Install GCC
         run: sudo apt-get update && sudo apt-get install build-essential -y
 
-      # Compile the code
+      # Compile the C program (specific project + shared folder)
       - name: Compile C Program
-        run: gcc index.c src/*/*.c -o index
+        run: |
+          gcc index.c src/simple-gui-text-editor/*.c src/shared/*.c -o simple-gui-text-editor
 
       # Run the compiled program
       - name: Run Program
-        run: ./index
+        run: ./simple-gui-text-editor
