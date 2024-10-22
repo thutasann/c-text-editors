@@ -17,10 +17,10 @@
     - 36: Cyan
     - 37: White
  */
-void welcome_text(void) {
+void welcome_text(const char *message) {
     // Apply bright green color, bold, and underline formatting for the heading
     printf("\033[1;32m");
-    printf("Welcome To Elastrix Editor!\n");
+    printf("%s\n", message);
     printf("\033[0m"); // Reset formatting to default
 
     printf("Press 'q' and 'enter' to exit.\n");
