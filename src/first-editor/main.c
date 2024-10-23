@@ -30,8 +30,9 @@ int main(void) {
     addch(ch);
 
     int x, y = 0;
+    getyx(stdscr, y, x);
     while (ch != 'q') {
-        // mvprintw(row - 1, 0, stringify_mode());
+        mvprintw(row - 1, 0, stringify_mode());
         move(y, x);
 
         ch = getch();
