@@ -19,7 +19,7 @@ TARGET = $(PROJECT)
 all: $(TARGET)
 
 $(TARGET): $(wildcard $(PROJECT_DIR)/*/*.c)
-	$(CC) $(CFLAGS) -o $(TARGET) $(wildcard $(PROJECT_DIR)/*.c) -lncurses
+	$(CC) -o $(TARGET) $(wildcard $(PROJECT_DIR)/*.c) -lncurses
 
 # Rule to run the compiled program for a specific project
 run: all
