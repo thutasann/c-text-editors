@@ -21,6 +21,7 @@
     "unistd.h": "c",
     "xlib.h": "c",
     "ncurses.h": "c",
-    "curses.h": "c"
+    "curses.h": "c",
+    "myenums.h": "c"
   }
 }

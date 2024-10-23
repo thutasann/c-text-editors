@@ -8,7 +8,7 @@
 // methods
 void welcome_print(const char *message);
 void initializations(void);
-void print_positions(void);
+char *stringify_mode();
 
 /** Mode */
 Mode mode = NORMAL;
@@ -18,32 +18,51 @@ Mode mode = NORMAL;
  */
 int main(void) {
     initializations();
-    print_positions();
 
+    // ----- pointer position
+    int row, col;
+    getmaxyx(stdscr, row, col);
+    mvprintw(row - 1, 0, stringify_mode());
+    move(0, 0);
+
+    // ----- get characters
     int ch = getch();
     addch(ch);
 
+    int x, y = 0;
     while (ch != 'q') {
+        mvprintw(row - 1, 0, stringify_mode());
+        move(y, x);
+
         ch = getch();
         if (ch == 127 || ch == KEY_BACKSPACE) { // backspace
-            int x, y;
             getyx(stdscr, y, x);
-
-            if (x > 0) {
-                move(y, x - 1);
-                delch();
-            }
+            move(y, x - 1);
+            delch();
         } else if (ch == ctrl('q')) {
             printw("CTRL + q\n");
             break;
         } else {
             addch(ch);
         }
+        getyx(stdscr, y, x);
     }
 
     refresh(); // print it on the real screen
-    getch();   // get character
     endwin();  // end curse mode
 
     return 0;
+}
+
+/** Stringify Mode */
+char *stringify_mode() {
+    switch (mode) {
+    case NORMAL:
+        return "NORMAL";
+        break;
+    case INSERT:
+        return "INSERT";
+        break;
+    }
+    return "NORMAL";
 }
