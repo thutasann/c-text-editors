@@ -2,21 +2,21 @@
 #include <ncurses.h>
 #include <stdio.h>
 
-// defines
+// ----- defines
 #define ctrl(x) ((x) & 0x1f)
 
-// methods
+// ----- methods
 void welcome_print(const char *message);
 void initializations(void);
 char *stringify_mode();
+void outro(void);
 
-/** Mode */
+/** mode */
 Mode mode = NORMAL;
 
-/**
-    ## First Text Editor
- */
+/** text editor main function 🚀 */
 int main(void) {
+    // ----- initializations
     initializations();
 
     // ----- pointer position
@@ -49,13 +49,13 @@ int main(void) {
         getyx(stdscr, y, x);
     }
 
-    refresh(); // print it on the real screen
-    endwin();  // end curse mode
+    // ----- outros
+    outro();
 
     return 0;
 }
 
-/** Stringify Mode */
+/** @private stringify mode */
 char *stringify_mode() {
     switch (mode) {
     case NORMAL:
