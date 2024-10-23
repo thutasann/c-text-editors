@@ -31,7 +31,7 @@ int main(void) {
 
     int x, y = 0;
     while (ch != 'q') {
-        mvprintw(row - 1, 0, stringify_mode());
+        // mvprintw(row - 1, 0, stringify_mode());
         move(y, x);
 
         ch = getch();
