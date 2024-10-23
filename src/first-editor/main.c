@@ -4,6 +4,7 @@
 
 // ----- defines
 #define ctrl(x) ((x) & 0x1f)
+#define ESCAPE 27
 
 // ----- methods
 void welcome_print(const char *message);
@@ -26,25 +27,38 @@ int main(void) {
     move(0, 0);
 
     // ----- get characters
-    int ch = getch();
-    addch(ch);
-
+    int ch = 0;
     int x, y = 0;
     getyx(stdscr, y, x);
+
     while (ch != 'q') {
         mvprintw(row - 1, 0, stringify_mode());
         move(y, x);
-
         ch = getch();
-        if (ch == 127 || ch == KEY_BACKSPACE) { // backspace
-            getyx(stdscr, y, x);
-            move(y, x - 1);
-            delch();
-        } else if (ch == ctrl('q')) {
-            printw("CTRL + q\n");
+
+        // NORMAL or INSERT
+        switch (mode) {
+        case NORMAL:
+            if (ch == 'i') {
+                mode = INSERT;
+            }
             break;
-        } else {
-            addch(ch);
+        case INSERT:
+            if (ch == 127 || ch == KEY_BACKSPACE) { // backspace
+                getyx(stdscr, y, x);
+                move(y, x - 1);
+                delch();
+            } else if (ch == ESCAPE) { // escape
+                mode = NORMAL;
+            } else if (ch == ctrl('q')) {
+                printw("CTRL + q\n");
+                break;
+            } else {
+                addch(ch);
+            }
+            break;
+        default:
+            break;
         }
         getyx(stdscr, y, x);
     }
