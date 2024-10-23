@@ -33,3 +33,4 @@ echo $?
 ## Resources
 
 - [Article](https://viewsourcecode.org/snaptoken/kilo/)
+- [Ncurses](https://ftp.gnu.org/pub/gnu/ncurses/)
