@@ -44,12 +44,14 @@ int main(void) {
             }
             break;
         case INSERT:
+            keypad(stdscr, FALSE);
             if (ch == 127 || ch == KEY_BACKSPACE) { // backspace
                 getyx(stdscr, y, x);
                 move(y, x - 1);
                 delch();
             } else if (ch == ESCAPE) { // escape
                 mode = NORMAL;
+                keypad(stdscr, TRUE);
             } else if (ch == ctrl('q')) {
                 printw("CTRL + q\n");
                 break;
