@@ -1,6 +1,7 @@
 #include "myenums.h"
 #include <ncurses.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 // ----- defines
 #define ctrl(x) ((x) & 0x1f)
@@ -14,11 +15,16 @@ void outro(void);
 
 /** mode */
 Mode mode = NORMAL;
+int QUIT = 0;
 
 /** text editor main function 🚀 */
 int main(void) {
     // ----- initializations
     initializations();
+
+    // ----- buffer
+    char *buf = malloc(sizeof(char) * 1024);
+    size_t buf_s = 0;
 
     // ----- pointer position
     int row, col;
@@ -31,7 +37,9 @@ int main(void) {
     int x, y = 0;
     getyx(stdscr, y, x);
 
-    while (ch != 'q') {
+    // ----- print characters depending on the mode
+    while (ch != ctrl('q') && QUIT != 1) {
+        refresh();
         mvprintw(row - 1, 0, stringify_mode());
         move(y, x);
         ch = getch();
@@ -41,6 +49,11 @@ int main(void) {
         case NORMAL:
             if (ch == 'i') {
                 mode = INSERT;
+            } else if (ch == ctrl('s')) { // save
+                FILE *file = fopen("out.txt", "w");
+                fwrite(buf, buf_s, 1, file);
+                fclose(file);
+                QUIT = 1;
             }
             break;
         case INSERT:
@@ -49,6 +62,7 @@ int main(void) {
                 getyx(stdscr, y, x);
                 move(y, x - 1);
                 delch();
+                buf[buf_s--] = ' ';
             } else if (ch == ESCAPE) { // escape
                 mode = NORMAL;
                 keypad(stdscr, TRUE);
@@ -56,6 +70,7 @@ int main(void) {
                 printw("CTRL + q\n");
                 break;
             } else {
+                buf[buf_s++] = ch;
                 addch(ch);
             }
             break;
