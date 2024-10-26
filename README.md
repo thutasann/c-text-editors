@@ -1,6 +1,6 @@
-# Building Text Editors in C
+# Building Tools in C
 
-This is where I build the text editors in C.
+In this repo, Tools, Native Libraries will be created with C.
 
 ## Table of Contents
 
@@ -10,9 +10,9 @@ This is where I build the text editors in C.
 | Scripts   | [Source](#scripts)         |
 | Resources | [Source](#resources)       |
 
-## Editors
+## Tools
 
-| Editors           | Source                       |
+| Tools             | Source                       |
 | ----------------- | ---------------------------- |
 | First Text Editor | [Source](./src/first-editor) |
 
