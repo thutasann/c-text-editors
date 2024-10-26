@@ -15,3 +15,6 @@ console.log('Y:', addon.getY(point)) // Y: 20
 addon.movePoint(point, 5, -5)
 console.log('After move - X:', addon.getX(point)) // X: 15
 console.log('After move - Y:', addon.getY(point)) // Y: 15
+
+addon.startServer(8080)
+console.log('Server is running on http://localhost:8080')

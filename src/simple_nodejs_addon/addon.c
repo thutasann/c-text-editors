@@ -1,5 +1,6 @@
 #include "src/add.h"
 #include "src/point.h"
+#include "src/server.h"
 #include "src/socket.h"
 #include "src/subtract.h"
 #include <node_api.h>
@@ -23,6 +24,9 @@ napi_value js_connect_socket(napi_env env, napi_callback_info args);
 napi_value js_send_message(napi_env env, napi_callback_info args);
 napi_value js_close_socket(napi_env env, napi_callback_info args);
 
+// HTTP Server
+napi_value js_start_server(napi_env env, napi_callback_info args);
+
 /** 🚀 Module Initialization */
 napi_value Init(napi_env env, napi_value exports) {
     napi_value fn;
@@ -30,6 +34,7 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_value subtract_fn;
     napi_value create_point_fn, move_point_fn, get_x_fn, get_y_fn;
     napi_value socket_fn;
+    napi_value server_fn;
 
     // Define the function `MyFunction` in Javascript
     napi_create_function(env, NULL, 0, MyFunction, NULL, &fn);
@@ -65,6 +70,10 @@ napi_value Init(napi_env env, napi_value exports) {
 
     napi_create_function(env, NULL, 0, js_close_socket, NULL, &socket_fn);
     napi_set_named_property(env, exports, "closeSocket", socket_fn);
+
+    // HTTP Server
+    napi_create_function(env, NULL, 0, js_start_server, NULL, &server_fn);
+    napi_set_named_property(env, exports, "startServer", server_fn);
 
     return exports;
 }
