@@ -114,7 +114,8 @@ INCS_Release := \
 	-I/Users/thutasann/Library/Caches/node-gyp/20.5.1/deps/v8/include
 
 OBJS := \
-	$(obj).target/$(TARGET)/addon.o
+	$(obj).target/$(TARGET)/addon.o \
+	$(obj).target/$(TARGET)/src/*.o
 
 # Add to the list of files we specially track dependencies for.
 all_deps += $(OBJS)
