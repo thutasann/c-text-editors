@@ -115,7 +115,8 @@ INCS_Release := \
 
 OBJS := \
 	$(obj).target/$(TARGET)/addon.o \
-	$(obj).target/$(TARGET)/src/*.o
+	$(obj).target/$(TARGET)/src/add.o \
+	$(obj).target/$(TARGET)/src/subtract.o
 
 # Add to the list of files we specially track dependencies for.
 all_deps += $(OBJS)

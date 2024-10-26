@@ -25,16 +25,10 @@ touch binding.gyp
 touch addon.c
 ```
 
-**Compile the Module**
-
-```bash
-node-gyp configure
-node-gyp build
-```
-
 **Use the Compiled C Module in Node.js**
 
 ```bash
+node-gyp clean
 node-gyp configure
 node-gyp build
 

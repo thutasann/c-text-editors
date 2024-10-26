@@ -24,6 +24,7 @@
     "curses.h": "c",
     "myenums.h": "c",
     "node_api.h": "c",
-    "add.h": "c"
+    "add.h": "c",
+    "subtract.h": "c"
   }
 }
