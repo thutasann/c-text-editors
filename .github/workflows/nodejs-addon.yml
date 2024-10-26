@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16, 18, 20] # Specify the Node.js versions to test with
+        node-version: [16, 18, 20] # Node.js versions to test with
 
     steps:
       - name: Checkout repository
@@ -23,15 +23,20 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Change directory to addon
+        run: cd src/simple_nodejs_addon
+
       - name: Install dependencies
         run: npm install
-
-      - name: Build addon with node-gyp
         working-directory: src/simple_nodejs_addon
+
+      - name: Install and configure node-gyp
         run: |
           npm install -g node-gyp
           node-gyp configure
           node-gyp build
+        working-directory: src/simple_nodejs_addon
 
       - name: Run tests
-        run: node src/simple_nodejs_addon/index.js
+        run: node index.js
+        working-directory: src/simple_nodejs_addon
