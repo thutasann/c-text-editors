@@ -1,0 +1,37 @@
+name: Build and Test Node.js Addon
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16, 18, 20] # Specify the Node.js versions to test with
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build addon with node-gyp
+        working-directory: src/simple_nodejs_addon
+        run: |
+          npm install -g node-gyp
+          node-gyp configure
+          node-gyp build
+
+      - name: Run tests
+        run: node src/simple_nodejs_addon/index.js
