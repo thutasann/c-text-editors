@@ -1,6 +1,6 @@
 # Building Tools in C
 
-In this repo, Tools, Native Libraries will be created with C.
+In this repo, Tools, Native Libraries, Addons will be created with C.
 
 ## Table of Contents
 
@@ -12,9 +12,10 @@ In this repo, Tools, Native Libraries will be created with C.
 
 ## Tools
 
-| Tools             | Source                       |
-| ----------------- | ---------------------------- |
-| First Text Editor | [Source](./src/first-editor) |
+| Tools               | Source                              |
+| ------------------- | ----------------------------------- |
+| First Text Editor   | [Source](./src/first-editor)        |
+| Simple Nodejs Addon | [Source](./src/simple_nodejs_addon) |
 
 ## Scripts
 
