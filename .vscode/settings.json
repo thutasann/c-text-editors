@@ -25,6 +25,7 @@
     "myenums.h": "c",
     "node_api.h": "c",
     "add.h": "c",
-    "subtract.h": "c"
+    "subtract.h": "c",
+    "point.h": "c"
   }
 }
