@@ -119,7 +119,8 @@ OBJS := \
 	$(obj).target/$(TARGET)/src/subtract.o \
 	$(obj).target/$(TARGET)/src/point.o \
 	$(obj).target/$(TARGET)/src/socket.o \
-	$(obj).target/$(TARGET)/src/server.o
+	$(obj).target/$(TARGET)/src/server.o \
+	$(obj).target/$(TARGET)/src/memory.o
 
 # Add to the list of files we specially track dependencies for.
 all_deps += $(OBJS)

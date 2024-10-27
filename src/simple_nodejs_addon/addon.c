@@ -1,4 +1,5 @@
 #include "src/add.h"
+#include "src/memory.h"
 #include "src/point.h"
 #include "src/server.h"
 #include "src/socket.h"
@@ -27,6 +28,12 @@ napi_value js_close_socket(napi_env env, napi_callback_info args);
 // HTTP Server
 napi_value js_start_server(napi_env env, napi_callback_info args);
 
+// Memory Management
+napi_value AllocateMemory(napi_env env, napi_callback_info info);
+napi_value ReallocateMemory(napi_env env, napi_callback_info info);
+napi_value FreeMemory(napi_env env, napi_callback_info info);
+napi_value GetMemoryUsage(napi_env env, napi_callback_info info);
+
 /** 🚀 Module Initialization */
 napi_value Init(napi_env env, napi_value exports) {
     napi_value fn;
@@ -35,20 +42,21 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_value create_point_fn, move_point_fn, get_x_fn, get_y_fn;
     napi_value socket_fn;
     napi_value server_fn;
+    napi_value alloc_fn, realloc_fn, free_fn, usage_fn;
 
-    // Define the function `MyFunction` in Javascript
+    // Define the function `MyFunction` in Javascript ⭐️
     napi_create_function(env, NULL, 0, MyFunction, NULL, &fn);
     napi_set_named_property(env, exports, "MyFunction", fn);
 
-    // Define the function `Add` in Javascript
+    // Define the function `Add` in Javascript ⭐️
     napi_create_function(env, NULL, 0, Add, NULL, &add_fn);
     napi_set_named_property(env, exports, "add", add_fn);
 
-    // Define the function `Subtract` in Javascript
+    // Define the function `Subtract` in Javascript ⭐️
     napi_create_function(env, NULL, 0, Subtract, NULL, &subtract_fn);
     napi_set_named_property(env, exports, "subtract", subtract_fn);
 
-    // Point Data Structure
+    // Point Data Structure ⭐️
     napi_create_function(env, NULL, 0, CreatePoint, NULL, &create_point_fn);
     napi_set_named_property(env, exports, "createPoint", create_point_fn);
 
@@ -61,7 +69,7 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, GetY, NULL, &get_y_fn);
     napi_set_named_property(env, exports, "getY", get_y_fn);
 
-    // Socket
+    // Socket ⭐️
     napi_create_function(env, NULL, 0, js_connect_socket, NULL, &socket_fn);
     napi_set_named_property(env, exports, "connectSocket", socket_fn);
 
@@ -71,9 +79,20 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_create_function(env, NULL, 0, js_close_socket, NULL, &socket_fn);
     napi_set_named_property(env, exports, "closeSocket", socket_fn);
 
-    // HTTP Server
+    // HTTP Server ⭐️
     napi_create_function(env, NULL, 0, js_start_server, NULL, &server_fn);
     napi_set_named_property(env, exports, "startServer", server_fn);
+
+    // Memory Management ⭐️
+    napi_create_function(env, NULL, 0, AllocateMemory, NULL, &alloc_fn);
+    napi_create_function(env, NULL, 0, ReallocateMemory, NULL, &realloc_fn);
+    napi_create_function(env, NULL, 0, FreeMemory, NULL, &free_fn);
+    napi_create_function(env, NULL, 0, GetMemoryUsage, NULL, &usage_fn);
+
+    napi_set_named_property(env, exports, "allocateMemory", alloc_fn);
+    napi_set_named_property(env, exports, "reallocateMemory", realloc_fn);
+    napi_set_named_property(env, exports, "freeMemory", free_fn);
+    napi_set_named_property(env, exports, "getMemoryUsage", usage_fn);
 
     return exports;
 }

@@ -27,6 +27,8 @@
     "add.h": "c",
     "subtract.h": "c",
     "point.h": "c",
-    "socket.h": "c"
+    "socket.h": "c",
+    "memory.h": "c",
+    "malloc.h": "c"
   }
 }
