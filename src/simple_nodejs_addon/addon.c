@@ -10,7 +10,7 @@
 /** Sample MyFunction to return a string */
 napi_value MyFunction(napi_env env, napi_callback_info info) {
     napi_value result;
-    napi_create_string_utf8(env, "Hello From C!", NAPI_AUTO_LENGTH, &result);
+    napi_create_string_utf8(env, "Hello From C Addons!", NAPI_AUTO_LENGTH, &result);
     return result;
 }
 

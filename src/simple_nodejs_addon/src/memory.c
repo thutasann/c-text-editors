@@ -12,7 +12,9 @@ typedef struct MemoryBlock {
 MemoryBlock *head = NULL;
 size_t allocated_memory = 0;
 
-// Helper function to find a block by pointer
+// ------- Helpers 🚀
+
+/** Helper function to find a block by pointer */
 MemoryBlock *find_block(void *ptr) {
     MemoryBlock *current = head;
     while (current != NULL) {
@@ -24,7 +26,7 @@ MemoryBlock *find_block(void *ptr) {
     return NULL;
 }
 
-// Helper function to add a block to the linked list
+/** Helper function to add a block to the linked list */
 void add_block(void *ptr, size_t size) {
     MemoryBlock *new_block = (MemoryBlock *)malloc(sizeof(MemoryBlock));
     new_block->ptr = ptr;
@@ -34,7 +36,7 @@ void add_block(void *ptr, size_t size) {
     allocated_memory += size;
 }
 
-// Helper function to remove a block from the linked list
+/** Helper function to remove a block from the linked list */
 void remove_block(void *ptr) {
     MemoryBlock **current = &head;
     while (*current != NULL) {
@@ -49,9 +51,8 @@ void remove_block(void *ptr) {
     }
 }
 
-// ------- Methods
+// ------- Methods 🚀
 
-// Custom allocation function to track memory
 void *allocate_memory(size_t size) {
     void *ptr = malloc(size);
     if (ptr != NULL) {
@@ -60,7 +61,6 @@ void *allocate_memory(size_t size) {
     return ptr;
 }
 
-// Custom reallocation function
 void *reallocate_memory(void *ptr, size_t new_size) {
     if (ptr == NULL) {
         return allocate_memory(new_size);
@@ -96,7 +96,7 @@ size_t get_memory_usage() {
     return allocated_memory;
 }
 
-// ------- Expose Functions
+// ------- Expose Functions 🚀
 
 napi_value AllocateMemory(napi_env env, napi_callback_info info) {
     size_t argc = 1;

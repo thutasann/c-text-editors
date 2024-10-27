@@ -1,4 +1,4 @@
-const addon = require('./build/Release/addon')
+const addon = require('../build/Release/addon')
 
 const sockfd = addon.connectSocket('127.0.0.1', 8080)
 if (sockfd < 0) {
