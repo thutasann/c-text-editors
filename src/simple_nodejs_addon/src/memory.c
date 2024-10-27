@@ -1,53 +1,54 @@
-// memory.c
 #include "memory.h"
 #include <node_api.h>
 #include <stdio.h>
 
+/** Memory Block Structure */
 typedef struct MemoryBlock {
-    void *ptr;
-    size_t size;
-    struct MemoryBlock *next;
+    void *ptr;                // pointer to the allocated memory block
+    size_t size;              // size of the allocated memory block
+    struct MemoryBlock *next; // pointer to the next memory block in the list
 } MemoryBlock;
 
-MemoryBlock *head = NULL;
-size_t allocated_memory = 0;
+MemoryBlock *head = NULL;    // points to the first block in the list (head of the list)
+size_t allocated_memory = 0; // tracks the total size of allocated memory
 
 // ------- Helpers 🚀
 
 /** Helper function to find a block by pointer */
 MemoryBlock *find_block(void *ptr) {
     MemoryBlock *current = head;
-    while (current != NULL) {
-        if (current->ptr == ptr) {
-            return current;
+    while (current != NULL) {      // traverse the list
+        if (current->ptr == ptr) { // check if current block mastches the pointer
+            return current;        // return the block if found
         }
-        current = current->next;
+        current = current->next; // move to the next block
     }
-    return NULL;
+    return NULL; // return NULL if not found
 }
 
 /** Helper function to add a block to the linked list */
 void add_block(void *ptr, size_t size) {
+    // allocate memroy for the new block
     MemoryBlock *new_block = (MemoryBlock *)malloc(sizeof(MemoryBlock));
-    new_block->ptr = ptr;
-    new_block->size = size;
-    new_block->next = head;
-    head = new_block;
-    allocated_memory += size;
+    new_block->ptr = ptr;     // set the block's pointer to the allocated memory
+    new_block->size = size;   // set the block's size
+    new_block->next = head;   // Point the new block's next to the current head
+    head = new_block;         // Make the new block the new head of the list
+    allocated_memory += size; // Increase the total allocated memory count
 }
 
 /** Helper function to remove a block from the linked list */
 void remove_block(void *ptr) {
-    MemoryBlock **current = &head;
-    while (*current != NULL) {
-        if ((*current)->ptr == ptr) {
-            MemoryBlock *to_remove = *current;
-            allocated_memory -= to_remove->size;
-            *current = to_remove->next;
-            free(to_remove);
+    MemoryBlock **current = &head;               // Start at the head
+    while (*current != NULL) {                   // Traverse the list
+        if ((*current)->ptr == ptr) {            // Check if the current block matches
+            MemoryBlock *to_remove = *current;   // Temporary pointer to the block to be removed
+            allocated_memory -= to_remove->size; // Subtract the block's size from the total
+            *current = to_remove->next;          // Update the current pointer to skip the block
+            free(to_remove);                     // Free the block's memory
             return;
         }
-        current = &(*current)->next;
+        current = &(*current)->next; // Move to the next block
     }
 }
 
