@@ -1,4 +1,5 @@
 #include "src/include/add.h"
+#include "src/include/linked_list.h"
 #include "src/include/memory.h"
 #include "src/include/point.h"
 #include "src/include/server.h"
@@ -34,6 +35,11 @@ napi_value ReallocateMemory(napi_env env, napi_callback_info info);
 napi_value FreeMemory(napi_env env, napi_callback_info info);
 napi_value GetMemoryUsage(napi_env env, napi_callback_info info);
 
+// Linked List
+napi_value Insert(napi_env env, napi_callback_info info);
+napi_value Delete(napi_env env, napi_callback_info info);
+napi_value Display(napi_env env, napi_callback_info info);
+
 /** 🚀 Module Initialization */
 napi_value Init(napi_env env, napi_value exports) {
     napi_value fn;
@@ -43,6 +49,7 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_value socket_fn;
     napi_value server_fn;
     napi_value alloc_fn, realloc_fn, free_fn, usage_fn;
+    napi_value insert_fn, delete_fn, display_fn;
 
     // Define the function `MyFunction` in Javascript ⭐️
     napi_create_function(env, NULL, 0, MyFunction, NULL, &fn);
@@ -93,6 +100,16 @@ napi_value Init(napi_env env, napi_value exports) {
     napi_set_named_property(env, exports, "reallocateMemory", realloc_fn);
     napi_set_named_property(env, exports, "freeMemory", free_fn);
     napi_set_named_property(env, exports, "getMemoryUsage", usage_fn);
+
+    // Linked List ⭐️
+    napi_create_function(env, NULL, 0, Insert, NULL, &insert_fn);
+    napi_set_named_property(env, exports, "insert", insert_fn);
+
+    napi_create_function(env, NULL, 0, Delete, NULL, &delete_fn);
+    napi_set_named_property(env, exports, "delete", delete_fn);
+
+    napi_create_function(env, NULL, 0, Display, NULL, &display_fn);
+    napi_set_named_property(env, exports, "display", display_fn);
 
     return exports;
 }

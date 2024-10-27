@@ -29,6 +29,7 @@
     "point.h": "c",
     "socket.h": "c",
     "memory.h": "c",
-    "malloc.h": "c"
+    "malloc.h": "c",
+    "linked_list.h": "c"
   }
 }
