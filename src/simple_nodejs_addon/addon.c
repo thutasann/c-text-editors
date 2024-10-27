@@ -1,9 +1,9 @@
-#include "src/add.h"
-#include "src/memory.h"
-#include "src/point.h"
-#include "src/server.h"
-#include "src/socket.h"
-#include "src/subtract.h"
+#include "src/include/add.h"
+#include "src/include/memory.h"
+#include "src/include/point.h"
+#include "src/include/server.h"
+#include "src/include/socket.h"
+#include "src/include/subtract.h"
 #include <node_api.h>
 #include <stdlib.h>
 

@@ -1,4 +1,4 @@
-#include "point.h"
+#include "./include/point.h"
 #include <node_api.h>
 #include <stdio.h>
 #include <stdlib.h>
