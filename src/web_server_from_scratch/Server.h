@@ -20,7 +20,7 @@ struct Server {
 
     int socket; /**< Socket to refer a lot throughout the lifetime of this server  */
 
-    void (*launch)(void); /**< Pointer to the function that launches the server. */
+    void (*launch)(struct Server *server); /**< Pointer to the function that launches the server. */
 };
 
 /**
@@ -36,6 +36,6 @@ struct Server {
  *
  * @return A Server struct initialized with the provided parameters.
  */
-struct Server server_constructor(int domain, int service, int protocol, u_long interface, int port, int backlog, void (*launch)(void));
+struct Server server_constructor(int domain, int service, int protocol, u_long interface, int port, int backlog, void (*launch)(struct Server *server));
 
 #endif
