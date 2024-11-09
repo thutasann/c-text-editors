@@ -32,6 +32,7 @@
     "malloc.h": "c",
     "linked_list.h": "c",
     "server.h": "c",
-    "in.h": "c"
+    "in.h": "c",
+    "inet.h": "c"
   }
 }

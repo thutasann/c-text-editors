@@ -20,10 +20,16 @@ In this repo, Tools, Native Libraries, Addons will be created with C.
 
 ## Scripts
 
-**Run Simple GUI Text Editor:**
+**Run Simple Text Editor:**
 
 ```bash
 make clean && make run PROJECT=first-editor
+```
+
+**Run Web Server from Scratch**
+
+```bash
+make clean && make run PROJECT=web_server_from_scratch
 ```
 
 **display the exit status of the last executed command**

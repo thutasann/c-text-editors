@@ -18,6 +18,8 @@ struct Server {
 
     struct sockaddr_in address; /**< Socket address structure for the server. */
 
+    int socket; /**< Socket to refer a lot throughout the lifetime of this server  */
+
     void (*launch)(void); /**< Pointer to the function that launches the server. */
 };
 
