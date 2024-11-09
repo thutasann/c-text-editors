@@ -12,10 +12,11 @@ In this repo, Tools, Native Libraries, Addons will be created with C.
 
 ## Tools
 
-| Tools               | Source                              |
-| ------------------- | ----------------------------------- |
-| First Text Editor   | [Source](./src/first-editor)        |
-| Simple Nodejs Addon | [Source](./src/simple_nodejs_addon) |
+| Tools                   | Source                                  |
+| ----------------------- | --------------------------------------- |
+| First Text Editor       | [Source](./src/first-editor)            |
+| Simple Nodejs Addon     | [Source](./src/simple_nodejs_addon)     |
+| Web Server from scratch | [Source](./src/web_server_from_scratch) |
 
 ## Scripts
 

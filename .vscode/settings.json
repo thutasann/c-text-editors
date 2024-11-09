@@ -30,6 +30,8 @@
     "socket.h": "c",
     "memory.h": "c",
     "malloc.h": "c",
-    "linked_list.h": "c"
+    "linked_list.h": "c",
+    "server.h": "c",
+    "in.h": "c"
   }
 }
