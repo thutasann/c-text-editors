@@ -1,4 +1,4 @@
-name: C Build for First Editor
+name: C Build for Web Server
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       # Compile the C program (specific project + shared folder)
       - name: Compile C Program
         run: |
-          gcc src/first-editor/*.c src/shared/*.c -o first-editor -lncurses
+          gcc src/web_server_from_scratch/*.c src/shared/*.c -o web_server_from_scratch
 
       # Run the compiled program
       # - name: Run Program
