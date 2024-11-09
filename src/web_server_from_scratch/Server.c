@@ -42,11 +42,3 @@ struct Server server_constructor(int domain, int service, int protocol, u_long i
 
     return server;
 }
-
-/**
-    ## Web Server from scratch ##
- */
-int main() {
-    printf("Hello from Server\n");
-    return 0;
-}

@@ -3,10 +3,10 @@ name: C Build for Web Server
 on:
   push:
     branches:
-      - master # Trigger on pushes to the master branch
+      - master
   pull_request:
     branches:
-      - master # Trigger on pull requests to the master branch
+      - master
 
 jobs:
   build:
@@ -24,12 +24,12 @@ jobs:
       # Compile the C program (specific project + shared folder)
       - name: Compile C Program
         run: |
-          gcc src/web_server_from_scratch/*.c src/shared/*.c -o web_server_from_scratch
+          gcc -I/src/web_server_from_scratch src/web_server_from_scratch/*.c src/shared/*.c -o web_server_from_scratch
 
-      # Run the compiled program
+      # Uncomment to run the compiled program (ensure it’s correct)
       # - name: Run Program
-      #   run: ./first-editor
+      #   run: ./web_server_from_scratch
 
-      # Optional: Clean up
+      # Optional: Clean up after running
       # - name: Clean up
-      #   run: rm -f first-editor
+      #   run: rm -f web_server_from_scratch
